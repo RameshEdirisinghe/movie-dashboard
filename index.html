@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="bg-black">
+    <nav class="navbar navbar-expand-lg bg-transparent text-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="#">Movie HUB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active  text-light" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" href="#ratings">Ratings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" href="movies.html" >Movie List</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <li class="nav-item">
+                            <a class="nav-link  text-light" href="#watchlistwrapper" >Watch List</a>
+                        </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-end">
+                    <input class="form-control me-2 btn-outline-light" type="search" placeholder="Search" aria-label="Search" id="movieName">
+
+                    <input type="button" value="Search" onclick="search()">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row d-flex justify-content-center align-items-center vh-100" id="movies">
+        <div class="card bg-transparent" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1vo5h3WiC3MkIbCwhHe5aaAUocnEWPZGrQQ&s" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-light">Fall Guy</h5>
+                <p class="card-text text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tenetur
+                    eveniet commodi tempora </p>
+                    <p class="card-text text-light">Imdb Rate : 6.5</p>
+                <a href="#" class="btn btn-primary" onclick="watchCount()">Watch Now</a>
+            </div>
+        </div>
+        <div class="card bg-transparent" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZRqTIjW6FEGTKRMfTDKUGWGVKF9kCoFD92A&s" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-light">Package</h5>
+                <p class="card-text text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tenetur
+                    eveniet commodi tempora </p>
+                    <p class="card-text text-light">Imdb Rate : 6.5</p>
+                <a href="#" class="btn btn-primary">Watch Now</a>
+            </div>
+        </div>
+        <div class="card bg-transparent" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtaSA__h-1J9ZcDhZ7jo2DlpVNYxUZJZr79g&s" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-light">IT end With us</h5>
+                <p class="card-text text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tenetur
+                    eveniet commodi tempora </p>
+                    <p class="card-text text-light">Imdb Rate : 6.5</p>
+                <a href="#" class="btn btn-primary">Watch Now</a>
+            </div>
+        </div>
+        <div class="card bg-transparent" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyVMqea9Y4GjlywyWWz1lP-EH6hB9OBLVtQw&s" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-light">Archive</h5>
+                <p class="card-text text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tenetur
+                    eveniet commodi tempora </p>
+                    <p class="card-text text-light">Imdb Rate : 6.5</p>
+                <a href="#" class="btn btn-primary">Watch Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="ratings" class="d-flex justify-content-center">
+        <canvas class="d-flex justify-content-center m-5"  id="myChart"></canvas>
+      </div>
+
+      <div class="row m-5" data-aos="flip-up">
+
+        <div class="col-md-6" id="watchlistwrapper">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>All Movies</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Movie Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="li">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm ">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Watch List</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Movie Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liC">
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ratings" class="d-flex justify-content-center w-50">
+    <canvas class="d-flex justify-content-center m-5"  id="pieChart"></canvas>
+  </div>
+
+
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
